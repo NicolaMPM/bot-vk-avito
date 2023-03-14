@@ -45,6 +45,9 @@
     <ClCompile Include="MultiThering.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="Импорт.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">

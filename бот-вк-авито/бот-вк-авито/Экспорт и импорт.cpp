@@ -7,46 +7,6 @@
 using namespace std;
 
 namespace ExportAndImportData {
-	class ImportDataBaseFromMySQL {
-	public:
-		vector<tuple<int, string, string>> importDataBaseAvito() {//импорт и поиск людей по базе данных Авито
-			potoc::Vhod* vhod = nullptr;
-			vector<tuple<int, string, string>> mass;
-			MYSQL* link = mysql_init(0);
-			MYSQL_RES *result = mysql_store_result(link);
-			MYSQL_ROW row;
-			mysql_real_connect(link, "бот", vhod->UserServerLog, vhod->UserServerPass, "databaseclientsvk", 2, 0, 0);
-			mysql_query(link, "SET NAMES 'cp1251'");//задаём кодировку соединения
-			row = mysql_fetch_row(result);
-			int i = 0;
-			while (row[i] != nullptr) {
-				mass.push_back(make_tuple(i, row[i]++, row[i]+2));
-				i++;
-			}
-			mysql_free_result(result);
-			mysql_close(link);
-			return mass;
-		}//эту функцию использовать в импорте данных из базы данных(когда будет готов вывод сообщений)
-		vector<tuple<int,string,string>> importDataBaseVK() {//импорт и поиск людей по базе данных ВК
-			potoc::Vhod *vhod = nullptr;
-			MYSQL* link = mysql_init(0);
-			vector<tuple<int, string, string>>mass;
-			MYSQL_RES* result = mysql_store_result(link);
-			MYSQL_ROW row;
-			mysql_real_connect(link, "бот", vhod->UserServerLog, vhod->UserServerPass, "databaseclientsvk", 1, 0, 0);
-			mysql_query(link, "SET NAMES 'cp1251'");//задаём кодировку соединения
-			row = mysql_fetch_row(result);
-			int i = 0;
-			string ak;
-			while (row[i] != nullptr) {
-				mass.push_back(make_tuple(i, row[i]++, row[i] + 2));
-				i++;
-			}
-			mysql_free_result(result);
-			mysql_close(link);
-			return mass;
-		}//эту функцию использовать в импорте данных из базы данных (когда будет готов вывод сообщений)
-	};
 	class ChtenieColoumn {
 	public:
 		int numVK;
@@ -132,11 +92,11 @@ namespace ExportAndImportData {
 			MYSQL* link;
 			link = mysql_init(0);
 			potoc::Vhod *vhod = nullptr;
-			WorkingSAvito::Avito avito;
+			WorkingSAvito::Avito *avito = nullptr;
 			mysql_real_connect(link, "localhost3306", vhod->UserServerLog, vhod->UserServerPass, "databaseclientsvk", 0, 0, 0);
 			mysql_query(link, "SET NAMES 'cp1251'");//задаём кодировку соединения
 			if (vhod->vvod() == 0) {//Экспорт одной ячейки базы данных Авито
-				string A = "INSERT INTO `ClientsAvito` (id,IDPols, ФИО) VALUES (" + to_string(i) + "," + avito.ChtenieAPIAvitoIDshnick() + "," + avito.ChtenieAPIAvitoFIO() + ");";
+				string A = "INSERT INTO `ClientsAvito` (id,IDPols, ФИО) VALUES (" + to_string(i) + "," + avito->ChtenieAPIAvitoIDshnick() + "," + avito->ChtenieAPIAvitoFIO() + ");";
 				mysql_query(link, A.c_str());
 			}
 			else if (vhod->vvod() == 1) {

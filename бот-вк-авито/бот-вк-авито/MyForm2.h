@@ -1,5 +1,8 @@
 
 #pragma once
+#include "совместимость с вк.cpp"
+#include "совместимость с авито.cpp"
+#include "Ёкспорт и импорт.cpp"
 
 namespace InterfaceMyFormTwo {
 	using namespace System;
@@ -9,6 +12,7 @@ namespace InterfaceMyFormTwo {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace System::Threading;
+	using namespace std;
 	string SearchDBVK;
 	string SearchDBAvito;
 	struct Mnogopotoc {

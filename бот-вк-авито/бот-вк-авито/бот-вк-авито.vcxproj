@@ -136,6 +136,7 @@
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="MyForm2.cpp" />
     <ClCompile Include="Алгоритмы.cpp" />
+    <ClCompile Include="Импорт.cpp" />
     <ClCompile Include="работа с БД.cpp" />
     <ClCompile Include="совместимость с авито.cpp" />
     <ClCompile Include="совместимость с вк.cpp" />
