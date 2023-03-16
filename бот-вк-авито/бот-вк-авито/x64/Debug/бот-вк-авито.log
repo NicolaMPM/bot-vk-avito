@@ -61,3 +61,6 @@ D:\source\repos\бот-вк-авито\бот-вк-авито\MyForm2.h(26,47): 
 D:\source\repos\бот-вк-авито\бот-вк-авито\MyForm2.h(26,47): message : при попытке сопоставить список аргументов "()"
 D:\source\repos\бот-вк-авито\бот-вк-авито\MyForm2.h(41,31): warning C4947: System::Threading::Thread::Suspend: помечен как устаревший
 D:\source\repos\бот-вк-авито\бот-вк-авито\MyForm2.h(41,31): message : Сообщение: "Thread.Suspend has been deprecated.  Please use other classes in System.Threading, such as Monitor, Mutex, Event, and Semaphore, to synchronize Threads or protect resources.  http://go.microsoft.com/fwlink/?linkid=14202"
+  совместимость с авито.cpp
+  совместимость с вк.cpp
+  Создание кода...
