@@ -2,6 +2,7 @@
 #pragma once
 
 namespace Interface {
+
 	using namespace std;
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -25,12 +26,32 @@ namespace Interface {
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 	public:
+	private:
+		string* UlocalhostLogin = (string*)0x0039F993;
+		string* UlocalhostPass = (string*)0x0039F994;
+		string* UClientLoginVK = (string*)0x0039F995;
+		string* UClientPassVK = (string*)0x0039F996;
+		string* UClientLoginAvito = (string*)0x0039F997;
+		string* UClientPassAvito = (string*)0x0039F998;
+		string* UClientText = (string*)0x0039F999;
+		string* UVKToken = (string*)0x0039F99A;
+		string* UAvitoToken = (string*)0x0039F99B;
+	public:
 		MyForm(void)
 		{
 			InitializeComponent();
 			//
 			//TODO: добавьте код конструктора
 			//
+			this->UlocalhostLogin = &Interface::localhostLogin;
+			this->UlocalhostPass = &Interface::localhostPass;
+			this->UClientLoginVK = &Interface::ClientLoginVK;
+			this->UClientPassVK = &Interface::ClientPassVK;
+			this->UClientLoginAvito = &Interface::ClientLoginAvito;
+			this->UClientPassAvito = &Interface::ClientPassAvito;
+			this->UClientText = &Interface::ClientText;
+			this->UVKToken = &Interface::VKToken;
+			this->UAvitoToken = &Interface::AvitoToken;
 		}
 	protected:
 		/// <summary>
@@ -42,6 +63,15 @@ namespace Interface {
 			{
 				delete components;
 			}
+			delete this->UlocalhostLogin;
+			delete this->UlocalhostPass;
+			delete this->UClientLoginVK;
+			delete this->UClientPassVK;
+			delete this->UClientLoginAvito;
+			delete this->UClientPassAvito;
+			delete this->UClientText;
+			delete this->UVKToken;
+			delete this->UAvitoToken;
 		}
 	private: System::Windows::Forms::MenuStrip^ menuStrip1;
 	protected:

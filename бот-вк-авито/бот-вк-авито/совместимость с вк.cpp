@@ -6,7 +6,6 @@
 using namespace std;
 
 namespace WorkingSVK {
-
 	class VK : public ShablonSocSet::PeredachaPols {
 	private:
 		string* Utoken = (string*)0x0039F973;

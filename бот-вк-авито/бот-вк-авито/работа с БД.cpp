@@ -10,7 +10,48 @@ using namespace std;
 
 namespace potoc {
 	class Vhod {
-		public:
+	private:
+		const char* UUserServerLog = (const char*)3799429;
+		const char* UUserServerPass = (const char*)3799430;
+		const char* UpasswordVK = (const char*)3799431;
+		const char* UpasswordAvito = (const char*)3799432;
+		const char* UVKtoken = (const char*)3799433;
+		const char* UAvitoToken = (const char*)3799434;
+		const char* UuserVK = (const char*)3799435;
+		const char* UuserAvito = (const char*)3799436;
+	public:
+		template<typename T>
+		Vhod() {
+			this->UUserServerLog = this->UserServerLog;
+			this->UUserServerPass = this->UserServerPass;
+			this->UpasswordVK = this->passwordVK;
+			this->UpasswordAvito = this->passwordAvito;
+			this->UVKtoken = this->VKToken;
+			this->UAvitoToken = this->AvitoToken;
+			this->UuserVK = this->userVK;
+			this->UuserAvito = this->userAvito;
+			T* a = (T*)3799437;
+			a = &this->vvod;
+			delete a;
+		}
+		~Vhod() {
+			delete UUserServerLog;
+			delete UUserServerPass;
+			delete UpasswordVK;
+			delete UpasswordAvito;
+			delete UVKtoken;
+			delete UAvitoToken;
+			delete UuserVK;
+			delete UuserAvito;
+			delete UserServerLog;
+			delete UserServerPass;
+			delete passwordVK;
+			delete passwordAvito;
+			delete VKToken;
+			delete AvitoToken;
+			delete userVK;
+			delete userAvito;
+		}
 			const char* UserServerLog = Interface::localhostLogin.c_str();
 			const char* UserServerPass = Interface::localhostPass.c_str();
 			const char *passwordVK = Interface::ClientPassVK.c_str();
@@ -47,4 +88,5 @@ namespace potoc {
 				return 0;
 			}
 	};
+
 }

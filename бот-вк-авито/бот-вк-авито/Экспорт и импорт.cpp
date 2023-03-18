@@ -80,6 +80,40 @@ namespace ExportAndImportData {
 	};
 	class WorkingSVKK {
 	public:
+		vector<string>* vk = (vector<string>*)0x0039F9B3;
+		vector<string>* avito = (vector<string>*)0x0039F9B4;
+		template<typename T>
+		WorkingSVKK() {
+			T* FFEVK = (T*)0x0039F9A6;
+			T* FFEA = (T*)0x0039F9A7;
+			T* eDBA = (T*)0x0039F9A8;
+			T* eDBVK = (T*)0x0039F9A9;
+			T* EDBSVK = (T*)0x0039F9B0;
+			T* EDBSA = (T*)0x0039F9B1;
+			T* FDB = (T*)0x0039F9B2;
+
+			this->vk = &this->DBVK;
+			this->avito = &this->DBAvito;
+			FFEVK = &this->FinalFunctionExportVK;
+			FFEA = &this->FinalFunctionExportAvito;
+			eDBA = &this->exportDataBaseAvito;
+			eDBVK = &this->exportDataBaseVK;
+			EDBSVK = &this->ExportDataBaseSortVK;
+			EDBSA = &this->ExportDataBaseSortAvito;
+			FDB = &this->FreeDataBase;
+
+			delete FFEVK;
+			delete FFEA;
+			delete eDBA;
+			delete eDBVK;
+			delete EDBSVK;
+			delete EDBSA;
+			delete FDB;
+		}
+		~WorkingSVKK() {
+			delete vk;
+			delete avito;
+		}
 		vector<string>DBVK = ZapolnenieDBVK();
 		vector<string>DBAvito = ZapolnenieDBAvito();
 		void FinalFunctionExportVK() {
@@ -114,15 +148,15 @@ namespace ExportAndImportData {
 		}
 		string searchVK(const string& searchSlovo) {//поиск по базе
 			vector<string>a = DBVK;
-			Structures::BinarySearch BS;
+			Structures::BinarySearch *BS = nullptr;
 			DBVK.clear();
-			return BS.Search(searchSlovo, a);
+			return BS->Search(searchSlovo, a);
 		}
 		string searchAvito(const string& searchSlovo) {//поиск по базе
 			vector<string>a = DBAvito;
-			Structures::BinarySearch BS;
+			Structures::BinarySearch *BS = nullptr;
 			DBAvito.clear();
-			return BS.Search(searchSlovo, a);
+			return BS->Search(searchSlovo, a);
 		}
 		void exportDataBaseVK(const size_t &i) {//Ёкспорт 1-й €чейки и сбор базы данных ¬ 
 			MYSQL* link;
@@ -151,9 +185,9 @@ namespace ExportAndImportData {
 			vector<string> Rezerv = CVK->coloumnVK();
 			FreeDataBase("VK", CVK->numVK);
 			struct Structures::SortirovkaThree::Three* root = 0;
-			Structures::SortirovkaThree rot;
+			Structures::SortirovkaThree *rot = nullptr;
 			for (size_t i = 0; i < Rezerv.size(); i++) {//—ортировка вектора
-				root = rot.addNode(Rezerv[i], root);
+				root = rot->addNode(Rezerv[i], root);
 			}
 			Rezerv = Structures::zapis;
 			DBVK = Rezerv;
@@ -166,7 +200,7 @@ namespace ExportAndImportData {
 		}
 		void ExportDataBaseSortAvito() {//Ёкспортирование отсортированной базы данных јвито
 			ChtenieColoumn *CAvito = nullptr;
-			MYSQL* link;
+			MYSQL* link = nullptr;
 			potoc::Vhod* vhod = nullptr;
 			link = mysql_init(0);
 			mysql_real_connect(link, "бот", vhod->UserServerLog, vhod->UserServerPass, "databaseclientsvk", 0, 0, 0);
@@ -174,11 +208,11 @@ namespace ExportAndImportData {
 			vector<string> Rezerv = CAvito->coloumnAvito();
 			FreeDataBase("VK", CAvito->numAvito);
 			struct Structures::SortirovkaThree::Three* root = 0;
-			Structures::SortirovkaThree rot;
+			Structures::SortirovkaThree *rot = nullptr;
 			for (size_t i = 0; i < Rezerv.size(); i++) {//—ортировка вектора
-				root = rot.addNode(Rezerv[i], root);
+				root = rot->addNode(Rezerv[i], root);
 			}
-			rot.freeRAM(root);
+			rot->freeRAM(root);
 			Rezerv = Structures::zapis;
 			DBAvito = Rezerv;
 			Structures::zapis.clear();
