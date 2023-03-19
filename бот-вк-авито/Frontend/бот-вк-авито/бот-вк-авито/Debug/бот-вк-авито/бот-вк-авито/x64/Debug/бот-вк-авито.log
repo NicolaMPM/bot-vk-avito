@@ -1,0 +1,11 @@
+﻿  работа с БД.cpp
+D:\source\repos\бот-вк-авито\бот-вк-авито\MyForm2.h(45,31): warning C4947: System::Threading::Thread::Suspend: помечен как устаревший
+D:\source\repos\бот-вк-авито\бот-вк-авито\MyForm2.h(45,31): message : Сообщение: "Thread.Suspend has been deprecated.  Please use other classes in System.Threading, such as Monitor, Mutex, Event, and Semaphore, to synchronize Threads or protect resources.  http://go.microsoft.com/fwlink/?linkid=14202"
+D:\source\repos\бот-вк-авито\бот-вк-авито\MyForm2.h(224,36): error C3861: preob: идентификатор не найден
+D:\source\repos\бот-вк-авито\бот-вк-авито\MyForm2.h(232,39): error C3861: preob: идентификатор не найден
+  Экспорт и импорт.cpp
+D:\source\repos\бот-вк-авито\бот-вк-авито\MyForm2.h(45,31): warning C4947: System::Threading::Thread::Suspend: помечен как устаревший
+D:\source\repos\бот-вк-авито\бот-вк-авито\MyForm2.h(45,31): message : Сообщение: "Thread.Suspend has been deprecated.  Please use other classes in System.Threading, such as Monitor, Mutex, Event, and Semaphore, to synchronize Threads or protect resources.  http://go.microsoft.com/fwlink/?linkid=14202"
+D:\source\repos\бот-вк-авито\бот-вк-авито\MyForm2.h(224,36): error C3861: preob: идентификатор не найден
+D:\source\repos\бот-вк-авито\бот-вк-авито\MyForm2.h(232,39): error C3861: preob: идентификатор не найден
+  Создание кода...
